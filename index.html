@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Random Sounds</title><style>body{font:16px system-ui;max-width:36rem;margin:4rem auto;padding:0 1rem}button{margin:.25rem;padding:.7rem 1rem}</style></head>
+<body><h1>Random Sounds</h1><p>Web Audio API sound effects and procedural chaos synth.</p>
+  <button data-sound="click">Click</button><button data-sound="success">Success</button><button data-sound="error">Error</button>
+  <button data-sound="randomSound" aria-label="Generate a random arcade sound">Random sound</button><button data-sound="chaos" aria-label="Generate a chaotic chiptune sound">Chaos synth</button>
+  <p id="status" role="status" aria-live="polite">Ready. Choose a sound.</p>
+  <script type="module">import { soundEffects } from './audiofx.js'; const status = document.querySelector('#status'); document.querySelectorAll('[data-sound]').forEach(button => button.addEventListener('click', () => { soundEffects[button.dataset.sound](); status.textContent = `${button.textContent} played.`; }));</script>
+</body></html>
